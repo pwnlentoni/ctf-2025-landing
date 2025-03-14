@@ -1,0 +1,145 @@
+* {
+  box-sizing: border-box;
+}
+
+body,
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  height: 100%;
+  overscroll-behavior-y: contain;
+}
+
+body,
+button,
+p,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+button,
+select {
+  border: none;
+  outline: none;
+  background: none;
+  font-family: inherit;
+}
+
+a,
+button,
+input,
+select,
+textarea {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  color: inherit; /* blue colors for links too */
+  text-decoration: inherit; /* no underline */
+}
+
+/* ===== END RESET ===== */
+
+:root {
+  overflow-x: hidden;
+  height: 100%;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --fill-color: black;
+    --background: #ececec;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fill-color: white;
+    --background: black;
+  }
+}
+
+body {
+  font-family: "Raleway", sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+#dropdown {
+  margin: 1em 0em;
+}
+
+.fredoka {
+  font-family: "Fredoka", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings: "width" 100;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--background);
+  color: var(--fill-color);
+  font-family: "Fredoka", sans-serif;
+}
+
+main {
+  text-align: center;
+  display: flex;
+  gap: 3em;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100dvh;
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+}
+
+p {
+  margin: 0;
+  font-size: 1.2em;
+}
+
+.semi-bold {
+  font-weight: 500;
+}
+
+.logo {
+  fill: var(--fill-color);
+  stroke: transparent;
+  transform-origin: 50% 50%;
+  transform-box: fill-box;
+  rotate: 45deg;
+  width: 10em;
+  height: 10em;
+}
+
+@keyframes pulse_opacity {
+  0% {
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+  }
+
+  50% {
+    opacity: 0.6;
+    transform: scale3d(0.9, 0.9, 0.9);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+.pulse {
+  animation: pulse_opacity 2s infinite ease-in-out;
+}
+
+svg {
+  flex-shrink: 0;
+}
