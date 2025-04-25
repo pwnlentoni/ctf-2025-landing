@@ -176,3 +176,7 @@ p {
   flex-direction: column;
   transition: transform cubic-bezier(0.4, 0, 0.2, 1) 0.7s;
 }
+
+.link-todo {
+  text-decoration: line-through;
+}
