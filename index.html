@@ -237,7 +237,175 @@
         </g>
       </svg>
 
-      <p>Coming soon!</p>
+      <p>
+        Coming soon to a farm near you!
+        <br />
+        <a href="https://ctftime.org/event/2762/">CTFtime link</a>
+        <br />
+        <a href="https://to.do">Discord server</a>
+      </p>
+
+      <div class="countdown">
+        <div class="digitgroup">
+          <div class="digit">
+            <div id="days-1">
+              <div>0</div>
+              <div>1</div>
+              <div>2</div>
+              <div>3</div>
+              <div>4</div>
+              <div>5</div>
+              <div>6</div>
+              <div>7</div>
+              <div>8</div>
+              <div>9</div>
+            </div>
+          </div>
+          <div class="digit">
+            <div id="days-2">
+              <div>0</div>
+              <div>1</div>
+              <div>2</div>
+              <div>3</div>
+              <div>4</div>
+              <div>5</div>
+              <div>6</div>
+              <div>7</div>
+              <div>8</div>
+              <div>9</div>
+            </div>
+          </div>
+        </div>
+        <div class="digitgroup">
+          <div class="digit">
+            <div id="hours-1">
+              <div>0</div>
+              <div>1</div>
+              <div>2</div>
+              <div>3</div>
+              <div>4</div>
+              <div>5</div>
+              <div>6</div>
+              <div>7</div>
+              <div>8</div>
+              <div>9</div>
+            </div>
+          </div>
+          <div class="digit">
+            <div id="hours-2">
+              <div>0</div>
+              <div>1</div>
+              <div>2</div>
+              <div>3</div>
+              <div>4</div>
+              <div>5</div>
+              <div>6</div>
+              <div>7</div>
+              <div>8</div>
+              <div>9</div>
+            </div>
+          </div>
+        </div>
+        <div class="digitgroup">
+          <div class="digit">
+            <div id="minutes-1">
+              <div>0</div>
+              <div>1</div>
+              <div>2</div>
+              <div>3</div>
+              <div>4</div>
+              <div>5</div>
+              <div>6</div>
+              <div>7</div>
+              <div>8</div>
+              <div>9</div>
+            </div>
+          </div>
+          <div class="digit">
+            <div id="minutes-2">
+              <div>0</div>
+              <div>1</div>
+              <div>2</div>
+              <div>3</div>
+              <div>4</div>
+              <div>5</div>
+              <div>6</div>
+              <div>7</div>
+              <div>8</div>
+              <div>9</div>
+            </div>
+          </div>
+        </div>
+        <div class="digitgroup">
+          <div class="digit">
+            <div id="seconds-1">
+              <div>0</div>
+              <div>1</div>
+              <div>2</div>
+              <div>3</div>
+              <div>4</div>
+              <div>5</div>
+              <div>6</div>
+              <div>7</div>
+              <div>8</div>
+              <div>9</div>
+            </div>
+          </div>
+          <div class="digit">
+            <div id="seconds-2">
+              <div>0</div>
+              <div>1</div>
+              <div>2</div>
+              <div>3</div>
+              <div>4</div>
+              <div>5</div>
+              <div>6</div>
+              <div>7</div>
+              <div>8</div>
+              <div>9</div>
+            </div>
+          </div>
+        </div>
+        <span>Days</span>
+        <span>Hours</span>
+        <span>Minutes</span>
+        <span>Seconds</span>
+      </div>
     </main>
   </body>
+
+  <script>
+    const seconds_1 = document.getElementById("seconds-1");
+    const seconds_2 = document.getElementById("seconds-2");
+    const minutes_1 = document.getElementById("minutes-1");
+    const minutes_2 = document.getElementById("minutes-2");
+    const hours_1 = document.getElementById("hours-1");
+    const hours_2 = document.getElementById("hours-2");
+    const days_1 = document.getElementById("days-1");
+    const days_2 = document.getElementById("days-2");
+    const ctfStart = new Date(Date.UTC(2025, 5, 21, 12, 0, 0));
+
+    const update = () => {
+      const now = new Date(new Date().toUTCString());
+      const days = (ctfStart - now) / (1000 * 60 * 60 * 24);
+      const hours = ((ctfStart - now) / (1000 * 60 * 60)) % 24;
+      const minutes = ((ctfStart - now) / (1000 * 60)) % 60;
+      const seconds = ((ctfStart - now) / 1000) % 60;
+
+      const digit = (number, i) =>
+        Math.floor(number).toString().padStart(2, "0").at(i) ?? "0";
+
+      seconds_1.style.transform = `translateY(-${digit(seconds, 0)}0%)`;
+      seconds_2.style.transform = `translateY(-${digit(seconds, 1)}0%)`;
+      minutes_1.style.transform = `translateY(-${digit(minutes, 0)}0%)`;
+      minutes_2.style.transform = `translateY(-${digit(minutes, 1)}0%)`;
+      hours_1.style.transform = `translateY(-${digit(hours, 0)}0%)`;
+      hours_2.style.transform = `translateY(-${digit(hours, 1)}0%)`;
+      days_1.style.transform = `translateY(-${digit(days, 0)}0%)`;
+      days_2.style.transform = `translateY(-${digit(days, 1)}0%)`;
+    };
+
+    setInterval(update, 1000);
+    update();
+  </script>
 </html>

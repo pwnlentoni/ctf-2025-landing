@@ -37,7 +37,6 @@ textarea {
 
 a {
   color: inherit; /* blue colors for links too */
-  text-decoration: inherit; /* no underline */
 }
 
 /* ===== END RESET ===== */
@@ -142,4 +141,38 @@ p {
 
 svg {
   flex-shrink: 0;
+}
+
+p {
+  line-height: 1.5;
+}
+
+.countdown {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5em 2em;
+}
+
+.countdown > span {
+  font-size: 1rem;
+  text-align: center;
+}
+
+.digitgroup {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.digit {
+  height: 1lh;
+  overflow: hidden;
+
+  font-size: 2rem;
+}
+
+.digit > div {
+  display: flex;
+  flex-direction: column;
+  transition: transform cubic-bezier(0.4, 0, 0.2, 1) 0.7s;
 }
